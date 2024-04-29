@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link href="/css/bootstrap.min.css" rel="stylesheet" >
+	<script src="/js/bootstrap.bundle.min.js" ></script>
+</head>
+<body>
+<div class="container">
+
+<h2>Gestor de eventos</h2>
+
+	<form action="/adicionar" method="post">
+		<div class="row">
+		
+			<div class="col">
+			 	<input class="form-control" type="text" placeholder="Evento" id="evento" name="evento">
+			</div>
+			
+			<div class="col">
+			 	<input class="form-control" type="date" placeholder="Data evento" id="dtEvento" name="dtEvento">
+			</div>
+			
+			
+			
+			<div class="col">
+			 	<input type="submit" class="btn btn-success" value="Adicionar">
+			</div>
+		 
+		 </div>
+	</form> 
+
+	<table class="table table-striped mt-3">
+	  <tr>
+	    <th>Evento</th>
+	    <th>Data Evento</th>
+	    <th>Data Cadastro</th>
+	    <th>Status</th>
+	  </tr>
+	  <tr th:each ="evento : ${eventos}" >
+	    <td th:text=${evento.evento}></td>
+	    <td th:text=${evento.dtEvento}></td>
+	    <td th:text=${evento.dtCadatro}></td>
+	    <td th:text=${evento.status}></td>
+	  </tr>	 
+	</table>
+  </div>
+</body>
+</html>
